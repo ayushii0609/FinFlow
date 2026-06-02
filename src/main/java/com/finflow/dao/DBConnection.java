@@ -19,7 +19,7 @@ public class DBConnection {
 
         URL      = (envUrl  != null) ? envUrl  : "jdbc:mysql://localhost:3306/finflow_db?useSSL=false&serverTimezone=Asia/Kolkata";
         USER     = (envUser != null) ? envUser : "root";
-        PASSWORD = (envPass != null) ? envPass : "your_local_password";
+        PASSWORD = (envPass != null) ? envPass : "ayushi@123#";
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
