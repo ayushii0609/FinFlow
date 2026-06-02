@@ -11,8 +11,8 @@ public class DBConnection {
     private static final String PASSWORD;
 
     static {
-        // Use environment variables on server
-        // Fall back to localhost for local development
+        // Use environment variables on server Fall back to localhost for local development
+
         String envUrl  = System.getenv("DB_URL");
         String envUser = System.getenv("DB_USER");
         String envPass = System.getenv("DB_PASS");
