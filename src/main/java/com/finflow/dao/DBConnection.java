@@ -6,11 +6,21 @@ import java.sql.SQLException;
 
 public class DBConnection {
 
-    private static final String URL = System.getenv("DB_URL");
-    private static final String USER = System.getenv("DB_USER");
-    private static final String PASSWORD = System.getenv("DB_PASS");
+    private static final String URL;
+    private static final String USER;
+    private static final String PASSWORD;
 
     static {
+        // Use environment variables on server
+        // Fall back to localhost for local development
+        String envUrl  = System.getenv("DB_URL");
+        String envUser = System.getenv("DB_USER");
+        String envPass = System.getenv("DB_PASS");
+
+        URL      = (envUrl  != null) ? envUrl  : "jdbc:mysql://localhost:3306/finflow_db?useSSL=false&serverTimezone=Asia/Kolkata";
+        USER     = (envUser != null) ? envUser : "root";
+        PASSWORD = (envPass != null) ? envPass : "your_local_password";
+
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
